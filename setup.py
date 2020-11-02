@@ -99,8 +99,8 @@ ext_modules = [
     mise_module,
     simplify_mesh_module,
     voxelize_module,
-    dmc_pred2mesh_module,
-    dmc_cuda_module,
+    #dmc_pred2mesh_module,
+    #dmc_cuda_module,
 ]
 
 setup(
