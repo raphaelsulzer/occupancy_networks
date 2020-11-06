@@ -1,12 +1,18 @@
-ROOT=..
+#ROOT=..
 
-export MESHFUSION_PATH=$ROOT/external/mesh-fusion
+export MESHFUSION_PATH=../external/mesh-fusion
 export HDF5_USE_FILE_LOCKING=FALSE # Workaround for NFS mounts
 
-INPUT_PATH=$ROOT/data/external/ShapeNetCore.v1
-CHOY2016_PATH=$ROOT/data/external/Choy2016
-BUILD_PATH=$ROOT/data/ShapeNet.build
-OUTPUT_PATH=$ROOT/data/ShapeNet
+#INPUT_PATH=$ROOT/data/external/ShapeNetCore.v1
+#CHOY2016_PATH=$ROOT/data/external/Choy2016
+#BUILD_PATH=$ROOT/data/ShapeNet.build
+#OUTPUT_PATH=$ROOT/data/ShapeNet
+
+ROOT=/mnt/raphael/ProcessedShapeNet
+INPUT_PATH=$ROOT/ShapeNetCore.v1
+CHOY2016_PATH=$ROOT/Choy2016
+BUILD_PATH=$ROOT/ShapeNet.build
+OUTPUT_PATH=$ROOT/ShapeNet
 
 NPROC=12
 TIMEOUT=180

@@ -66,12 +66,15 @@ parser.add_argument('--packbits', action='store_true',
     
 def main(args):
     input_files = glob.glob(os.path.join(args.in_folder, '*.off'))
-    if args.n_proc != 0:
-        with Pool(args.n_proc) as p:
-            p.map(partial(process_path, args=args), input_files)
-    else:
-        for p in input_files:
-            process_path(p, args)
+    try:
+        if args.n_proc != 0:
+            with Pool(args.n_proc) as p:
+                p.map(partial(process_path, args=args), input_files)
+        else:
+            for p in input_files:
+                process_path(p, args)
+    except:
+        pass
 
 
 def process_path(in_path, args):
