@@ -8,21 +8,34 @@ for c in ${CLASSES[@]}; do
   input_path_c=$INPUT_PATH/$c
   build_path_c=$BUILD_PATH/$c
 
-  mkdir -p $build_path_c/0_in \
-           $build_path_c/1_scaled \
-           $build_path_c/1_transform \
-           $build_path_c/2_depth \
-           $build_path_c/2_watertight \
+#  mkdir -p $build_path_c/0_in \
+#           $build_path_c/1_scaled \
+#           $build_path_c/1_transform \
+#           $build_path_c/2_depth \
+#           $build_path_c/2_watertight \
+#           $build_path_c/3_watertight_obj \
+#           $build_path_c/4_points \
+#           $build_path_c/4_pointcloud \
+#           $build_path_c/4_watertight_scaled \
+
+  rm -rf $build_path_c/0_in \
+         $build_path_c/1_scaled \
+         $build_path_c/1_transform \
+         $build_path_c/2_depth \
+         $build_path_c/2_watertight \
+
+  mkdir -p $build_path_c/2_watertight \
            $build_path_c/3_watertight_obj \
            $build_path_c/4_points \
            $build_path_c/4_pointcloud \
            $build_path_c/4_watertight_scaled \
 
+
 #  echo "Converting meshes to OFF"
 #  lsfilter $input_path_c $build_path_c/0_in .off | parallel -P $NPROC --timeout $TIMEOUT \
 #     meshlabserver -i $input_path_c/{}/model.obj -o $build_path_c/0_in/{}.off;
 
-  echo "Converting meshes to OFF"
+  echo "Produce watertight meshes"
   lsfilter $input_path_c $build_path_c/3_watertight_obj .obj | parallel -P $NPROC --timeout $TIMEOUT \
     /home/raphael/cpp/ManifoldPlus/build/manifold \
     --input $input_path_c/{}/model.obj \

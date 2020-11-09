@@ -21,8 +21,8 @@ N_TEST=100
 N_AUG=50
 
 declare -a CLASSES=(
-03001627
-02958343
+#03001627
+#02958343
 04256520
 02691156
 03636649
@@ -35,6 +35,7 @@ declare -a CLASSES=(
 02828884
 04090263
 )
+
 
 # Utility functions
 lsfilter() {
